@@ -9,19 +9,37 @@ const NavigationButton = {};
 
 NavigationButton.Text = ({
     onClick,
-    children
+    onMouseLeave,
+    onMouseEnter,
+    children,
+    indictable
 }) => {
     return ( 
-        <NavigationItem>
-            <NavigationLink.Text as={NakedButton} onClick={onClick}> 
+        <NavigationItem indictable={indictable}>
+            <NavigationLink.Text 
+              as={NakedButton} 
+              onClick={onClick}
+              onMouseLeave={onMouseLeave}
+              onMouseEnter={onMouseEnter}
+            > 
                 {children}
             </NavigationLink.Text>
         </NavigationItem>
      );  
 }
 
+NavigationButton.defaultProps = {
+    indicatable: false,
+    onClick: undefined,
+    onMouseEnter: undefined,
+    onMouseLeave: undefined,
+}
+
 NavigationButton.Text.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    indicatable: PropTypes.bool,
+    onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
     children: PropTypes.node.isRequired
 }
 

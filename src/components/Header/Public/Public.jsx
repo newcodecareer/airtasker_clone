@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import NavigationLink from '../NavigationLink/NavigationLink';
 import NavigationButton from '../NavigationButton';
 import PostATaskModal from './components/PostATaskModal';
+import CategoriesDropdown from './components/CategoriesDropdown';
 
 const Layout = styled.div`
     display: flex;
@@ -16,6 +17,7 @@ const Divider = styled.div`
 const Logo = styled.span`
     color: #545a77;
 `;
+
 
 
 const Public = () => {
@@ -40,9 +42,7 @@ const Public = () => {
                     onClose={togglePostATaskModal}
                     ></PostATaskModal>
                 )}
-                <NavigationLink.Text indictable={true} href="/bb">
-                    Categories
-                </NavigationLink.Text>
+                <CategoriesDropdown/>
                 <NavigationLink.Text indictable href="/cc">
                     Browse tasks
                 </NavigationLink.Text>
