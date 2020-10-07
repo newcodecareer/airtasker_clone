@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import NavigationLink from '../NavigationLink';
 import NavigationItem from '../NavigationItem';
 import NakedButton from '../../NakedButton';
+import Button from '../../Button';
+import styled from 'styled-components';
 
 
 const NavigationButton = {};
@@ -43,17 +45,22 @@ NavigationButton.Text.propTypes = {
     children: PropTypes.node.isRequired
 }
 
+const StyledButton = styled(Button)`
+    margin: 8px 16px;
+`;
+
 NavigationButton.Button = ({
     onClick,
-    children
+    children,
+    variant,
 }) => (
-    <NavigationLink.Button as="button" variant="primary" onClick={onClick}>
+    <StyledButton as="button" variant={variant} onClick={onClick}>
         {children}
-    </NavigationLink.Button>
+    </StyledButton>
 )
 
 NavigationButton.Button.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,  
     children: PropTypes.node.isRequired
 }
 

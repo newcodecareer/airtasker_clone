@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import NavigationLink from '../../../NavigationLink';
-import NakedButton from '../../../../NakedButton';
 import NavigationItem from '../../../NavigationItem';
 
 const Menu = styled.div`
@@ -15,6 +14,10 @@ const Menu = styled.div`
     margin-left: 8px;
     display: flex;
 `;
+
+//12-4 4
+//6-12 6
+//12-3 3
 
 const CursorWrapper = styled(NavigationItem)`
     cursor: pointer;

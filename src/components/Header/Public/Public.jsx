@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import NavigationLink from '../NavigationLink/NavigationLink';
 import NavigationButton from '../NavigationButton';
 import PostATaskModal from './components/PostATaskModal';
 import CategoriesDropdown from './components/CategoriesDropdown';
+import ToggleContent from '../../ToggleContent';
 
 const Layout = styled.div`
     display: flex;
@@ -21,27 +22,26 @@ const Logo = styled.span`
 
 
 const Public = () => {
-    const [showPostATaskModal, setShowAPostTaskModal] = useState(false);
-
-    const togglePostATaskModal = (event) => {
-        event.preventDefault();
-        setShowAPostTaskModal(!showPostATaskModal)
-    }
-    
     return (
         <Layout>
             <NavigationLink.Naked href="/">
                 <Logo>LOGO</Logo>
             </NavigationLink.Naked>
             <Divider/>
-                <NavigationButton.Button onClick={togglePostATaskModal} variant="primary" href="/aa">
-                    Post a task
-                </NavigationButton.Button>
-                {showPostATaskModal && (
-                    <PostATaskModal
-                    onClose={togglePostATaskModal}
-                    ></PostATaskModal>
-                )}
+                <ToggleContent
+                  toggle={(toggler) => (
+                    <NavigationButton.Button 
+                      onClick={toggler} 
+                      variant="primary" 
+                      href="/aa"
+                    >
+                        Post a task
+                    </NavigationButton.Button>
+                  )}
+                  content={(toggler)=>(
+                      <PostATaskModal onClose={toggler}/>
+                  )}
+                /> 
                 <CategoriesDropdown/>
                 <NavigationLink.Text indictable href="/cc">
                     Browse tasks
